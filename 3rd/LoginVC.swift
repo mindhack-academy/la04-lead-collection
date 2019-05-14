@@ -35,6 +35,9 @@ class LoginVC: UIViewController {
             //autentificare valida
             errorLabel.isHidden = true
             
+            print("Al doilea comit")
+            
+            
             if let formVC = self.storyboard?.instantiateViewController(withIdentifier: "FormVC") {
              self.present(formVC, animated: true, completion: nil)
             }
