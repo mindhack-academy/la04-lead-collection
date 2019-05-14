@@ -22,6 +22,9 @@ class LoginVC: UIViewController {
         
         errorLabel.isHidden = true
         errorLabel.text = "Mai baga o fisa"
+        
+//        emailTextField.text = "email@me.com"
+//        passwordTextField.text = "pass"
     }
 
 
