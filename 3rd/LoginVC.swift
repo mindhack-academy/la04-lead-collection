@@ -9,7 +9,7 @@
 import UIKit
 
 class LoginVC: UIViewController {
-
+    
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -23,14 +23,14 @@ class LoginVC: UIViewController {
         errorLabel.isHidden = true
         errorLabel.text = "Mai baga o fisa"
         
-//        emailTextField.text = "email@me.com"
-//        passwordTextField.text = "pass"
+        //        emailTextField.text = "email@me.com"
+        //        passwordTextField.text = "pass"
     }
-
-
+    
+    
     @IBAction func doLogin(_ sender: Any) {
-//    print(emailTextField.text,
-//          passwordTextField.text)
+        //    print(emailTextField.text,
+        //          passwordTextField.text)
         
         
         if emailTextField.text == "email@me.com",
@@ -42,17 +42,19 @@ class LoginVC: UIViewController {
             
             
             if let formVC = self.storyboard?.instantiateViewController(withIdentifier: "FormVC") {
-             self.present(formVC, animated: true, completion: nil)
+//                self.present(formVC, animated: true, completion: nil)
+                self.navigationController?.pushViewController(formVC, animated: true)
             }
             
         }  else {
-                //autentificare invalida
+            //autentificare invalida
             errorLabel.isHidden = false
         }
-    
+        
     }
     
     
     
 }
+
 

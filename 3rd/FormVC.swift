@@ -12,13 +12,13 @@ import UIKit
 class FormVC: UIViewController {
     
     override func viewDidLoad() {
-    super.viewDidLoad()
+        super.viewDidLoad()
         
         
     }
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
-
+    
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var phoneTextField: UITextField!
     @IBOutlet weak var technologySegmentedControl: UISegmentedControl!
@@ -31,18 +31,18 @@ class FormVC: UIViewController {
     
     @IBAction func sendButtonPressed(_ sender: Any) {
         
-        print(
-            firstNameTextField.text,
-            lastNameTextField.text,
-            emailTextField.text,
-            phoneTextField.text,
-            
-            technologySegmentedControl.selectedSegmentIndex,
-            technologySegmentedControl.titleForSegment(at: technologySegmentedControl.selectedSegmentIndex),
-            
-            reasonTextView.text,
-            
-            contactDatePicker.date)
+//        print(
+//            firstNameTextField.text,
+//            lastNameTextField.text,
+//            emailTextField.text,
+//            phoneTextField.text,
+//
+//            technologySegmentedControl.selectedSegmentIndex,
+//            technologySegmentedControl.titleForSegment(at: technologySegmentedControl.selectedSegmentIndex),
+//
+//            reasonTextView.text,
+//
+//            contactDatePicker.date)
         
         
         var user: User = User()
@@ -63,15 +63,39 @@ class FormVC: UIViewController {
         print("----- FORM DATA -----")
         print(formData)
         
+        // add to StorageManager
+        StorageManager.shared.addData(formData: formData)
+        
+        // print StorageManager data
+        print(StorageManager.shared.getData())
+        
+        //reset form
+        resetForm()
         
     }
     
-   
-    class Technology {
-        var title: String
-        var uid: String
+    
+    @IBAction func resetButtonPressed(_ sender: Any) {
+        
+        resetForm()
         
     }
+    
+    func resetForm()  {
+        
+        firstNameTextField.text = ""
+        lastNameTextField.text = ""
+        emailTextField.text = ""
+        phoneTextField.text = ""
+        technologySegmentedControl.selectedSegmentIndex = 0
+        reasonTextView.text = ""
+        contactDatePicker.date = Date()
+        
+        firstNameTextField.becomeFirstResponder()
+    
     }
     
 }
+
+
+
